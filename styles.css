@@ -107,7 +107,7 @@ a {
   margin: 0 auto;
   padding: 3rem 2rem;
   display: grid;
-  grid-template-columns: 1fr 280px;
+  grid-template-columns: 280px 1fr;
   gap: 4rem;
   align-items: start;
 }
@@ -271,12 +271,13 @@ a {
   height: 200px;
   margin: 0 auto 1.5rem;
   background: transparent;
-  border-radius: 8px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   position: relative;
+  overflow: hidden;
 }
 
 .cat-image {
