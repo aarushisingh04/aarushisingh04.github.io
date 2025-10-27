@@ -103,11 +103,11 @@ a {
 
 /* Main Container - Two Column Layout */
 .main-container {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: 3rem 1rem;
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 20% 80%;
   gap: 4rem;
   align-items: start;
 }
@@ -622,67 +622,265 @@ body:not(.theme-dark) .skill-tag:hover {
 .profile-title {
   font-size: 0.95rem;
   font-weight: 300;
-  color: #a0a0a0;
-  margin: 0 0 1.5rem;
-  text-align: center;
-}
 
-/* Social Links (icon + text format) */
-.social-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  margin-top: 1.5rem;
-}
+  body:not(.theme-dark) .section-content {
+    color: #333333;
+  }
 
-.social-link {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding: 0.6rem 0.8rem;
-  color: #a0a0a0;
-  font-size: 0.9rem;
-  font-weight: 300;
-  transition: all 0.3s ease;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
+  body:not(.theme-dark) .item-title {
+    color: #000000;
+  }
 
-.social-link:hover {
-  color: #196d70;
-  background: rgba(25, 109, 112, 0.1);
-  border-color: rgba(25, 109, 112, 0.3);
-  transform: translateX(4px);
-}
+  body:not(.theme-dark) .item-meta {
+    color: #666666;
+  }
 
-.social-link svg {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-}
+  body:not(.theme-dark) .item-description {
+    color: #333333;
+  }
 
-.social-link span {
-  flex: 1;
-}
+  body:not(.theme-dark) .highlight {
+    color: #196d70;
+  }
 
-/* Light mode adjustments for profile */
-body:not(.theme-dark) .profile-name {
-  color: #000000;
-}
+  body:not(.theme-dark) .highlight:hover {
+    color: #0d9488;
+  }
 
-body:not(.theme-dark) .profile-title {
-  color: #666666;
-}
+  body:not(.theme-dark) .highlight::before {
+    background: radial-gradient(ellipse at center, rgba(25, 109, 112, 0.4) 0%, rgba(25, 109, 112, 0.15) 40%, transparent 70%);
+  }
 
-body:not(.theme-dark) .social-link {
-  color: #666666;
-  background: rgba(0, 0, 0, 0.03);
-  border-color: rgba(0, 0, 0, 0.05);
-}
+  body:not(.theme-dark) .project-link:hover {
+    color: #0d9488;
+  }
 
-body:not(.theme-dark) .social-link:hover {
-  color: #196d70;
-  background: rgba(25, 109, 112, 0.1);
-  border-color: rgba(25, 109, 112, 0.3);
+  body:not(.theme-dark) .project-link::before {
+    background: radial-gradient(ellipse at center, rgba(25, 109, 112, 0.4) 0%, rgba(25, 109, 112, 0.15) 40%, transparent 70%);
+  }
+
+  body:not(.theme-dark) .profile-image-placeholder {
+    background: transparent;
+    border: none;
+  }
+
+  body:not(.theme-dark) .quote {
+    color: #666666;
+  }
+
+  body:not(.theme-dark) .social-icon {
+    background: #f3f4f6;
+    color: #666666;
+    border-color: #e5e7eb;
+  }
+
+  body:not(.theme-dark) .social-icon:hover {
+    background: #e5e7eb;
+    color: #196d70;
+    border-color: #196d70;
+  }
+
+  body:not(.theme-dark) .site-footer {
+    color: #999999;
+    border-top-color: #e5e7eb;
+  }
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .main-container {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .sidebar-column {
+      position: static;
+      order: -1;
+    }
+
+    .profile-image-placeholder {
+      width: 150px;
+      height: 150px;
+    }
+
+    .nav-container {
+      padding: 0 1.5rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .main-container {
+      padding: 2rem 1.5rem;
+    }
+
+    .nav-container {
+      padding: 0 1rem;
+      gap: 1rem;
+    }
+
+    .nav-link {
+      font-size: 0.85rem;
+    }
+
+    .theme-toggle {
+      font-size: 0.8rem;
+      padding: 0.35rem 0.7rem;
+    }
+  }
+
+  /* Experience Scrollable Section */
+  .experience-container {
+    position: relative;
+    height: 400px;
+    /* Fixed height for scrollable area */
+    overflow: hidden;
+  }
+
+  .experience-scroll-wrapper {
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 1rem;
+    /* Custom Scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: #196d70 transparent;
+  }
+
+  .experience-scroll-wrapper::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .experience-scroll-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .experience-scroll-wrapper::-webkit-scrollbar-thumb {
+    background-color: #196d70;
+    border-radius: 4px;
+  }
+
+  /* Skills Section */
+  .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .skill-tag {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: #d0d0d0;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .skill-tag:hover {
+    border-color: #196d70;
+    color: #196d70;
+    background: rgba(25, 109, 112, 0.1);
+    transform: translateY(-2px);
+  }
+
+  body:not(.theme-dark) .skill-tag {
+    color: #666666;
+    border-color: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.03);
+  }
+
+  body:not(.theme-dark) .skill-tag:hover {
+    border-color: #196d70;
+    color: #196d70;
+    background: rgba(25, 109, 112, 0.1);
+  }
+
+  /* Background Canvas */
+  #background-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    /* Allow clicks to pass through */
+  }
+
+  /* Profile Name and Title */
+  .profile-name {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0 0 0.3rem;
+    text-align: center;
+  }
+
+  .profile-title {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #a0a0a0;
+    margin: 0 0 1.5rem;
+    text-align: center;
+  }
+
+  /* Social Links (icon + text format) */
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    align-items: center;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.4rem 0;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    font-weight: 300;
+    transition: all 0.3s ease;
+    background: transparent;
+    border: none;
+    text-decoration: none;
+  }
+
+  .social-link:hover {
+    color: #196d70;
+    transform: translateX(2px);
+    background: transparent;
+    border: none;
+  }
+
+  .social-link svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  .social-link span {
+    /* flex: 1; Removed */
+  }
+
+  /* Light mode adjustments for profile */
+  body:not(.theme-dark) .profile-name {
+    color: #000000;
+  }
+
+  body:not(.theme-dark) .profile-title {
+    color: #666666;
+  }
+
+  body:not(.theme-dark) .social-link {
+    color: #666666;
+    background: transparent;
+    border: none;
+  }
+
+  body:not(.theme-dark) .social-link:hover {
+    color: #196d70;
+    background: transparent;
+    border: none;
+  }
 }
