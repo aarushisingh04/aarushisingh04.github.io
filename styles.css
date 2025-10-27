@@ -67,19 +67,6 @@ a {
     inset 0 1px 0 0 rgba(255, 255, 255, 0.3);
 }
 
-.theme-toggle:hover::before {
-  opacity: 1;
-  background: radial-gradient(circle, rgba(25, 109, 112, 0.4) 0%, rgba(25, 109, 112, 0.1) 50%, transparent 70%);
-  box-shadow: 0 0 30px rgba(25, 109, 112, 0.5), 0 0 60px rgba(25, 109, 112, 0.3);
-}
-
-/* Top Navigation */
-
-/* Content Column (Left) */
-.content-column {
-  min-width: 0;
-}
-
 .intro-section {
   margin-bottom: 2.5rem;
 }
