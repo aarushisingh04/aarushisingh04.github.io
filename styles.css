@@ -74,43 +74,6 @@ a {
 }
 
 /* Top Navigation */
-.top-nav {
-  padding: 1rem 0;
-  background: transparent;
-  transition: background-color 0.3s ease;
-}
-
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  align-items: center;
-}
-
-.nav-link {
-  font-size: 0.9rem;
-  font-weight: 300;
-  color: #a0a0a0;
-  transition: color 0.2s ease;
-}
-
-.nav-link:hover {
-  color: #196d70;
-}
-
-/* Main Container - Two Column Layout */
-.main-container {
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 3rem 1rem;
-  display: grid;
-  grid-template-columns: 20% 80%;
-  gap: 4rem;
-  align-items: start;
-}
 
 /* Content Column (Left) */
 .content-column {
