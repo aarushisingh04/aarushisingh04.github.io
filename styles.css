@@ -347,8 +347,7 @@ body:not(.theme-dark) .cat-light {
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px) saturate(180%);
   -webkit-backdrop-filter: blur(10px) saturate(180%);
-  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  box-shadow: none
 }
 
 .social-icon:hover {
@@ -613,7 +612,7 @@ body:not(.theme-dark) .skill-tag:hover {
 /* Profile Name and Title */
 .profile-name {
   font-size: 1.3rem;
-  font-weight: 500;
+  font-weight: 700;
   color: #ffffff;
   margin: 0 0 0.3rem;
   text-align: center;
