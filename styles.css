@@ -677,8 +677,8 @@ body:not(.theme-dark) .profile-title {
 
 body:not(.theme-dark) .social-link {
   color: #666666;
-  background: rgba(0, 0, 0, 0.03);
-  border-color: rgba(0, 0, 0, 0.05);
+  background: transparent;
+  border: none;
 }
 
 body:not(.theme-dark) .social-link:hover {
