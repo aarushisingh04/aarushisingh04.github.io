@@ -269,7 +269,7 @@ a {
 .profile-image-placeholder {
   width: 180px;
   height: 180px;
-  margin: 0 auto 1rem;
+  margin: 0 auto 0.5rem;
   background: transparent;
   border-radius: 50%;
   display: flex;
@@ -323,7 +323,7 @@ body:not(.theme-dark) .cat-light {
   font-weight: 300;
   color: #a0a0a0;
   font-style: italic;
-  margin: 0 0 1.5rem;
+  margin: 0 0 1rem;
   line-height: 1.6;
 }
 
@@ -533,6 +533,13 @@ body:not(.theme-dark) .site-footer {
 /* Experience Scrollable Section */
 .experience-container {
   position: relative;
+  height: 250px;
+  /* Fixed height for scrollable area */
+  overflow: hidden;
+}
+
+.project-container {
+  position: relative;
   height: 400px;
   /* Fixed height for scrollable area */
   overflow: hidden;
@@ -548,7 +555,7 @@ body:not(.theme-dark) .site-footer {
 }
 
 .experience-scroll-wrapper::-webkit-scrollbar {
-  width: 4px;
+  width: 3px;
 }
 
 .experience-scroll-wrapper::-webkit-scrollbar-track {
@@ -557,7 +564,7 @@ body:not(.theme-dark) .site-footer {
 
 .experience-scroll-wrapper::-webkit-scrollbar-thumb {
   background-color: #196d70;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 /* Skills Section */
@@ -622,7 +629,7 @@ body:not(.theme-dark) .skill-tag:hover {
   font-size: 0.95rem;
   font-weight: 300;
   color: #a0a0a0;
-  margin: 0 0 0.8rem;
+  margin: 0 0 0.6rem;
   text-align: left;
 }
 
@@ -631,15 +638,15 @@ body:not(.theme-dark) .skill-tag:hover {
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
-  margin-top: 0.4rem;
+  margin-top: 0.2rem;
   align-items: flex-start;
 }
 
 .social-link {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.4rem 0;
+  gap: 0.7rem;
+  padding: 0.2rem 0;
   color: #a0a0a0;
   font-size: 0.9rem;
   font-weight: 300;
@@ -683,6 +690,6 @@ body:not(.theme-dark) .social-link {
 
 body:not(.theme-dark) .social-link:hover {
   color: #196d70;
-  background: rgba(25, 109, 112, 0.1);
-  border-color: rgba(25, 109, 112, 0.3);
+  background: transparent;
+  border: none;
 }
