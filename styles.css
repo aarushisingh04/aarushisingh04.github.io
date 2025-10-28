@@ -107,7 +107,7 @@ a {
   margin: 0 auto;
   padding: 3rem 2rem;
   display: grid;
-  grid-template-columns: 290px 1fr;
+  grid-template-columns: 270px 1fr;
   gap: 4rem;
   align-items: start;
 }
@@ -263,7 +263,7 @@ a {
 }
 
 .profile-section {
-  text-align: center;
+  text-align: left;
 }
 
 .profile-image-placeholder {
@@ -614,25 +614,25 @@ body:not(.theme-dark) .skill-tag:hover {
   font-size: 1.3rem;
   font-weight: 700;
   color: #ffffff;
-  margin: 0 0 0.3rem;
-  text-align: center;
+  margin: 0 0 0.1rem;
+  text-align: left;
 }
 
 .profile-title {
   font-size: 0.95rem;
   font-weight: 300;
   color: #a0a0a0;
-  margin: 0 0 1.5rem;
-  text-align: center;
+  margin: 0 0 0.8rem;
+  text-align: left;
 }
 
 /* Social Links (icon + text format) */
 .social-links {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  margin-top: 1.5rem;
-  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.8rem;
+  align-items: flex-start;
 }
 
 .social-link {
