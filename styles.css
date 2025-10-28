@@ -107,7 +107,7 @@ a {
   margin: 0 auto;
   padding: 3rem 2rem;
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 290px 1fr;
   gap: 4rem;
   align-items: start;
 }
@@ -631,29 +631,30 @@ body:not(.theme-dark) .skill-tag:hover {
 .social-links {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.5rem;
   margin-top: 1.5rem;
+  align-items: center;
 }
 
 .social-link {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  padding: 0.6rem 0.8rem;
+  gap: 0.6rem;
+  padding: 0.4rem 0;
   color: #a0a0a0;
   font-size: 0.9rem;
   font-weight: 300;
   transition: all 0.3s ease;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: transparent;
+  border: none;
+  text-decoration: none;
 }
 
 .social-link:hover {
   color: #196d70;
-  background: rgba(25, 109, 112, 0.1);
-  border-color: rgba(25, 109, 112, 0.3);
-  transform: translateX(4px);
+  transform: translateX(2px);
+  background: transparent;
+  border: none;
 }
 
 .social-link svg {
@@ -663,7 +664,7 @@ body:not(.theme-dark) .skill-tag:hover {
 }
 
 .social-link span {
-  flex: 1;
+  /* flex: 1; Removed */
 }
 
 /* Light mode adjustments for profile */
