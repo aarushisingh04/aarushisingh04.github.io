@@ -199,10 +199,10 @@
     function setTheme(mode) {
       if (mode === "light") {
         body.classList.remove("theme-dark");
-        toggle.textContent = "Lights Off!";
+        toggle.textContent = "Lights Off";
       } else {
         body.classList.add("theme-dark");
-        toggle.textContent = "Lights On!";
+        toggle.textContent = "Lights On";
       }
       window.localStorage.setItem("theme", mode);
     }
