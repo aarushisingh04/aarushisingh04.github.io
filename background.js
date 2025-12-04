@@ -87,16 +87,16 @@ class Particle {
 // Create particle array
 function init() {
   particlesArray = [];
-  let numberOfParticles = (canvas.height * canvas.width) / 9000;
+  let numberOfParticles = (canvas.height * canvas.width) / 5000;
   for (let i = 0; i < numberOfParticles; i++) {
-    let size = (Math.random() * 3) + 1;
+    let size = (Math.random() * 5) + 2;
     let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
     let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
     let directionX = (Math.random() * 0.4) - 0.2;
     let directionY = (Math.random() * 0.4) - 0.2;
-    
+
     // Teal color with low opacity
-    let color = 'rgba(25, 109, 112, 0.2)'; 
+    let color = 'rgba(25, 109, 112, 0.2)';
 
     particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
   }
@@ -118,13 +118,13 @@ function connect() {
   let opacityValue = 1;
   for (let a = 0; a < particlesArray.length; a++) {
     for (let b = a; b < particlesArray.length; b++) {
-      let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + 
-                     ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
-      
-      if (distance < (canvas.width/7) * (canvas.height/7)) {
+      let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) +
+        ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+
+      if (distance < (canvas.width / 7) * (canvas.height / 7)) {
         opacityValue = 1 - (distance / 20000);
         ctx.strokeStyle = 'rgba(25, 109, 112,' + opacityValue * 0.15 + ')';
-        ctx.lineWidth = 1;
+        ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
         ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
