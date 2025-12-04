@@ -96,7 +96,7 @@ function init() {
     let directionY = (Math.random() * 0.4) - 0.2;
 
     // Teal color with low opacity
-    let color = 'rgba(25, 109, 112, 0.3)';
+    let color = 'rgba(25, 109, 112, 0.6)';
 
     particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
   }
