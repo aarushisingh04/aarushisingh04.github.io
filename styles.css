@@ -31,7 +31,7 @@ a {
 /* Theme Toggle Button */
 .theme-toggle {
   background: rgba(255, 255, 255, 0.08);
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   color: #ffffff;
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -40,10 +40,11 @@ a {
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: inherit;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   position: relative;
-  box-shadow: 0 0 0 rgba(25, 109, 112, 0);
+  box-shadow: 0 8px 32px 0 rgba(25, 109, 112, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
 }
 
 .theme-toggle::before {
@@ -59,8 +60,11 @@ a {
 }
 
 .theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.12);
-  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px 0 rgba(25, 109, 112, 0.2),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.3);
 }
 
 .theme-toggle:hover::before {
@@ -72,9 +76,7 @@ a {
 /* Top Navigation */
 .top-nav {
   padding: 1rem 0;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: transparent;
   transition: background-color 0.3s ease;
 }
 
@@ -335,19 +337,26 @@ body:not(.theme-dark) .cat-light {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #1a1a1a;
+  background: rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #a0a0a0;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-  border: 1px solid #333333;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
 }
 
 .social-icon:hover {
-  background: #2a2a2a;
+  background: rgba(25, 109, 112, 0.15);
   color: #196d70;
-  border-color: #196d70;
+  border-color: rgba(25, 109, 112, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px 0 rgba(25, 109, 112, 0.2),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
 }
 
 .social-icon svg {
@@ -363,8 +372,7 @@ body:not(.theme-dark) .cat-light {
   font-size: 0.85rem;
   font-weight: 300;
   margin-top: 4rem;
-  border-top: 1px solid #1a1a1a;
-  transition: color 0.3s ease, border-color 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .site-footer p {
@@ -378,9 +386,7 @@ body:not(.theme-dark) {
 }
 
 body:not(.theme-dark) .top-nav {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: transparent;
 }
 
 body:not(.theme-dark) .theme-toggle {
