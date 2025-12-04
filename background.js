@@ -1,7 +1,12 @@
 const canvas = document.getElementById('background-canvas');
 const ctx = canvas.getContext('2d');
 
-let particlesArray;
+let particlesArray = [];
+let mouse = {
+  x: null,
+  y: null,
+  radius: 150
+};
 
 // Set canvas size
 canvas.width = window.innerWidth;
@@ -15,115 +20,99 @@ window.addEventListener('resize', () => {
 });
 
 // Mouse interaction
-const mouse = {
-  x: null,
-  y: null,
-  radius: 150
-}
-
 window.addEventListener('mousemove', (event) => {
   mouse.x = event.x;
   mouse.y = event.y;
 });
 
-// Particle class
+// Particle class with wave motion
 class Particle {
-  constructor(x, y, directionX, directionY, size, color) {
+  constructor(x, y, size, speedX, speedY) {
     this.x = x;
     this.y = y;
-    this.directionX = directionX;
-    this.directionY = directionY;
+    this.baseX = x;
+    this.baseY = y;
     this.size = size;
-    this.color = color;
+    this.speedX = speedX;
+    this.speedY = speedY;
+    this.density = (Math.random() * 30) + 1;
+    this.angle = Math.random() * Math.PI * 2;
+    this.angleSpeed = (Math.random() * 0.02) - 0.01;
   }
 
-  // Draw particle
   draw() {
+    ctx.fillStyle = 'rgba(25, 109, 112, 0.6)';
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-    ctx.fillStyle = this.color;
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.closePath();
     ctx.fill();
   }
 
-  // Update particle position
   update() {
-    // Check if particle is still within canvas
-    if (this.x > canvas.width || this.x < 0) {
-      this.directionX = -this.directionX;
+    // Wave motion
+    this.angle += this.angleSpeed;
+    this.x = this.baseX + Math.sin(this.angle) * 20;
+    this.y = this.baseY + Math.cos(this.angle) * 20;
+
+    // Move base position
+    this.baseX += this.speedX;
+    this.baseY += this.speedY;
+
+    // Bounce off edges
+    if (this.baseX > canvas.width || this.baseX < 0) {
+      this.speedX = -this.speedX;
     }
-    if (this.y > canvas.height || this.y < 0) {
-      this.directionY = -this.directionY;
+    if (this.baseY > canvas.height || this.baseY < 0) {
+      this.speedY = -this.speedY;
     }
 
-    // Check collision detection - mouse position / particle position
+    // Mouse interaction - attract particles
     let dx = mouse.x - this.x;
     let dy = mouse.y - this.y;
     let distance = Math.sqrt(dx * dx + dy * dy);
+    let forceDirectionX = dx / distance;
+    let forceDirectionY = dy / distance;
+    let maxDistance = mouse.radius;
+    let force = (maxDistance - distance) / maxDistance;
+    let directionX = forceDirectionX * force * this.density;
+    let directionY = forceDirectionY * force * this.density;
 
-    if (distance < mouse.radius + this.size) {
-      if (mouse.x < this.x && this.x < canvas.width - this.size * 10) {
-        this.x += 10;
-      }
-      if (mouse.x > this.x && this.x > this.size * 10) {
-        this.x -= 10;
-      }
-      if (mouse.y < this.y && this.y < canvas.height - this.size * 10) {
-        this.y += 10;
-      }
-      if (mouse.y > this.y && this.y > this.size * 10) {
-        this.y -= 10;
-      }
+    if (distance < mouse.radius) {
+      this.x -= directionX;
+      this.y -= directionY;
     }
 
-    // Move particle
-    this.x += this.directionX;
-    this.y += this.directionY;
-
-    // Draw particle
     this.draw();
   }
 }
 
-// Create particle array
+// Initialize particles
 function init() {
   particlesArray = [];
-  let numberOfParticles = (canvas.height * canvas.width) / 9000;
+  let numberOfParticles = (canvas.width * canvas.height) / 8000;
+
   for (let i = 0; i < numberOfParticles; i++) {
-    let size = (Math.random() * 1.5) + 0.5;
-    let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
-    let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
-    let directionX = (Math.random() * 0.4) - 0.2;
-    let directionY = (Math.random() * 0.4) - 0.2;
+    let size = (Math.random() * 2) + 0.5;
+    let x = Math.random() * canvas.width;
+    let y = Math.random() * canvas.height;
+    let speedX = (Math.random() * 0.5) - 0.25;
+    let speedY = (Math.random() * 0.5) - 0.25;
 
-    // Teal color with low opacity
-    let color = 'rgba(25, 109, 112, 0.6)';
-
-    particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+    particlesArray.push(new Particle(x, y, size, speedX, speedY));
   }
 }
 
-// Animation loop
-function animate() {
-  requestAnimationFrame(animate);
-  ctx.clearRect(0, 0, innerWidth, innerHeight);
-
-  for (let i = 0; i < particlesArray.length; i++) {
-    particlesArray[i].update();
-  }
-  connect();
-}
-
-// Connect particles with lines
+// Connect nearby particles
 function connect() {
-  let opacityValue = 1;
   for (let a = 0; a < particlesArray.length; a++) {
     for (let b = a; b < particlesArray.length; b++) {
-      let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) +
-        ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+      let dx = particlesArray[a].x - particlesArray[b].x;
+      let dy = particlesArray[a].y - particlesArray[b].y;
+      let distance = Math.sqrt(dx * dx + dy * dy);
 
-      if (distance < (canvas.width / 7) * (canvas.height / 7)) {
-        opacityValue = 1 - (distance / 20000);
-        ctx.strokeStyle = 'rgba(25, 109, 112,' + opacityValue * 0.15 + ')';
+      if (distance < 120) {
+        let opacity = 1 - (distance / 120);
+        ctx.strokeStyle = `rgba(25, 109, 112, ${opacity * 0.2})`;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
@@ -132,6 +121,18 @@ function connect() {
       }
     }
   }
+}
+
+// Animation loop
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for (let i = 0; i < particlesArray.length; i++) {
+    particlesArray[i].update();
+  }
+
+  connect();
+  requestAnimationFrame(animate);
 }
 
 init();
