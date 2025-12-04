@@ -96,7 +96,7 @@ function init() {
     let directionY = (Math.random() * 0.4) - 0.2;
 
     // Teal color with low opacity
-    let color = 'rgba(25, 109, 112, 0.2)';
+    let color = 'rgba(25, 109, 112, 0.5)';
 
     particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
   }
@@ -123,7 +123,7 @@ function connect() {
 
       if (distance < (canvas.width / 7) * (canvas.height / 7)) {
         opacityValue = 1 - (distance / 20000);
-        ctx.strokeStyle = 'rgba(25, 109, 112,' + opacityValue * 0.15 + ')';
+        ctx.strokeStyle = 'rgba(25, 109, 112,' + opacityValue * 0.4 + ')';
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
