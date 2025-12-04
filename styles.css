@@ -72,7 +72,9 @@ a {
 /* Top Navigation */
 .top-nav {
   padding: 1rem 0;
-  background: #000000;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   transition: background-color 0.3s ease;
 }
 
@@ -376,7 +378,9 @@ body:not(.theme-dark) {
 }
 
 body:not(.theme-dark) .top-nav {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 body:not(.theme-dark) .theme-toggle {
@@ -519,81 +523,82 @@ body:not(.theme-dark) .site-footer {
     padding: 0.35rem 0.7rem;
   }
 }
+
 /* Experience Scrollable Section */
 .experience-container {
-    position: relative;
-    height: 400px;
-    /* Fixed height for scrollable area */
-    overflow: hidden;
+  position: relative;
+  height: 400px;
+  /* Fixed height for scrollable area */
+  overflow: hidden;
 }
 
 .experience-scroll-wrapper {
-    height: 100%;
-    overflow-y: auto;
-    padding-right: 1rem;
-    /* Custom Scrollbar */
-    scrollbar-width: thin;
-    scrollbar-color: #196d70 transparent;
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 1rem;
+  /* Custom Scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #196d70 transparent;
 }
 
 .experience-scroll-wrapper::-webkit-scrollbar {
-    width: 4px;
+  width: 4px;
 }
 
 .experience-scroll-wrapper::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 .experience-scroll-wrapper::-webkit-scrollbar-thumb {
-    background-color: #196d70;
-    border-radius: 4px;
+  background-color: #196d70;
+  border-radius: 4px;
 }
 
 /* Skills Section */
 .skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
 }
 
 .skill-tag {
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: #d0d0d0;
-    padding: 0.4rem 0.8rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.03);
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: #d0d0d0;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .skill-tag:hover {
-    border-color: #196d70;
-    color: #196d70;
-    background: rgba(25, 109, 112, 0.1);
-    transform: translateY(-2px);
+  border-color: #196d70;
+  color: #196d70;
+  background: rgba(25, 109, 112, 0.1);
+  transform: translateY(-2px);
 }
 
 body:not(.theme-dark) .skill-tag {
-    color: #666666;
-    border-color: rgba(0, 0, 0, 0.1);
-    background: rgba(0, 0, 0, 0.03);
+  color: #666666;
+  border-color: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.03);
 }
 
 body:not(.theme-dark) .skill-tag:hover {
-    border-color: #196d70;
-    color: #196d70;
-    background: rgba(25, 109, 112, 0.1);
+  border-color: #196d70;
+  color: #196d70;
+  background: rgba(25, 109, 112, 0.1);
 }
 
 /* Background Canvas */
 #background-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
-    /* Allow clicks to pass through */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  /* Allow clicks to pass through */
 }
