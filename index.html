@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aarushi Singh • Portfolio</title>
+    <meta
+      name="description"
+      content="Minimal portfolio of Aarushi Singh – projects, skills, and contact."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="theme-dark">
+    <aside class="side-nav" aria-label="Primary">
+      <a href="#top" class="pill-icon" aria-label="Home">
+        <span>⌂</span>
+      </a>
+      <a href="#about" class="pill-icon" aria-label="Profile">
+        <span>👤</span>
+      </a>
+      <a href="#projects" class="pill-icon" aria-label="Projects">
+        <span>✦</span>
+      </a>
+      <a href="#" class="pill-icon" aria-label="Resume">
+        <span>CV</span>
+      </a>
+      <a href="https://leetcode.com/aarushisingh27" target="_blank" class="pill-icon" aria-label="LeetCode">
+        <span>LC</span>
+      </a>
+      <a href="https://codeforces.com/profile/singhaarushi27" target="_blank" class="pill-icon" aria-label="Codeforces">
+        <span>CF</span>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/aarushi-s-52623b207/"
+        target="_blank"
+        class="pill-icon"
+        aria-label="LinkedIn"
+      >
+        <span>in</span>
+      </a>
+      <a
+        href="https://github.com/aarushisingh04"
+        target="_blank"
+        class="pill-icon"
+        aria-label="GitHub"
+      >
+        <span>GH</span>
+      </a>
+    </aside>
+
+    <main id="top">
+      <section class="hero container">
+        <div class="hero-text">
+          <p class="eyebrow">Portfolio</p>
+          <h1>Hi, I’m <span class="accent">Aarushi</span>.</h1>
+          <p class="subtitle">
+            A short sentence about what you do – for example:
+            “A front‑end developer who loves clean design and simple user
+            experiences.”
+          </p>
+          <div class="hero-actions">
+            <button id="theme-toggle" class="btn toggle" type="button">
+              Lights off
+            </button>
+            <a href="#projects" class="btn primary">View projects</a>
+            <a href="#contact" class="btn ghost">Get in touch</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container two-column">
+          <div>
+            <h2>About</h2>
+          </div>
+          <div class="section-body">
+            <p>
+              Write 3–4 lines about yourself here. Mention what you’re studying
+              or working on, what you enjoy building, and what you’re looking
+              for (internships, freelance work, collaborations, etc.).
+            </p>
+            <p>
+              Keep it simple and human. You can also list a few key skills:
+              HTML, CSS, JavaScript, React, design tools, or anything else that
+              represents you.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="container two-column">
+          <div>
+            <h2>Projects</h2>
+          </div>
+          <div class="section-body cards">
+            <article class="card">
+              <h3>Project One</h3>
+              <p>
+                A short one–sentence description of what this project does and
+                why it’s interesting.
+              </p>
+              <div class="card-meta">
+                <span>HTML · CSS · JS</span>
+                <a href="#" class="text-link">View project</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <h3>Project Two</h3>
+              <p>
+                Another project description. Focus on what you built or learned,
+                not just the tech stack.
+              </p>
+              <div class="card-meta">
+                <span>React · API</span>
+                <a href="#" class="text-link">View project</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <h3>Project Three</h3>
+              <p>
+                Optional third project. You can remove or duplicate these cards
+                as needed.
+              </p>
+              <div class="card-meta">
+                <span>Design</span>
+                <a href="#" class="text-link">View project</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container two-column">
+          <div>
+            <h2>Contact</h2>
+          </div>
+          <div class="section-body">
+            <p>
+              The easiest way to reach me is by email. I’m open to internship
+              opportunities, freelance work, and interesting side projects.
+            </p>
+            <ul class="contact-list">
+              <li>
+                <span class="label">Email</span>
+                <a href="mailto:emailaarushihere@gmail.com">emailaarushihere@gmail.com</a>
+              </li>
+              <li>
+                <span class="label">GitHub</span>
+                <a href="https://github.com/aarushisingh04" target="_blank"
+                  >@aarushisingh04</a
+                >
+              </li>
+              <!-- Add more links if you want:
+              <li>
+                <span class="label">LinkedIn</span>
+                <a href="#">Your LinkedIn</a>
+              </li>
+              -->
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© <span id="year"></span> Aarushi Singh</span>
+        <span class="footer-meta">Built with GitHub Pages</span>
+      </div>
+    </footer>
+
+    <script>
+      // Set current year in footer
+      document.getElementById("year").textContent =
+        new Date().getFullYear().toString();
+
+      // Lights on / off toggle
+      const body = document.body;
+      const toggle = document.getElementById("theme-toggle");
+
+      function setTheme(mode) {
+        if (mode === "dark") {
+          body.classList.add("theme-dark");
+          toggle.textContent = "Lights on";
+        } else {
+          body.classList.remove("theme-dark");
+          toggle.textContent = "Lights off";
+        }
+        window.localStorage.setItem("theme", mode);
+      }
+
+      const savedTheme = window.localStorage.getItem("theme");
+      if (savedTheme === "light") {
+        setTheme("light");
+      } else {
+        setTheme("dark");
+      }
+
+      toggle.addEventListener("click", () => {
+        const isDark = body.classList.contains("theme-dark");
+        setTheme(isDark ? "light" : "dark");
+      });
+    </script>
+  </body>
+</html>
+
+
